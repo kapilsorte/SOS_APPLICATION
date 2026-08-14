@@ -62,9 +62,9 @@ Here is a glimpse of the SOS Mobile App in action:
 
 | Dashboard & Map | Incoming Fake Call |
 | :---: | :---: |
-| <img src="assets/screenshots/dashboard.png" width="250" alt="Dashboard"> | <img src="assets/screenshots/incoming_call.png" width="250" alt="Incoming Call"> |
+| <img src="SOS_Application/assets/screenshots/dashboard.png" width="250" alt="Dashboard"> | <img src="SOS_Application/assets/screenshots/incoming_call.png" width="250" alt="Incoming Call"> |
 
 | Active Fake Call | Companion Matching |
 | :---: | :---: |
-| <img src="assets/screenshots/active_call.png" width="250" alt="Active Call"> | <img src="assets/screenshots/companion.png" width="250" alt="Companion Matching"> |
+| <img src="SOS_Application/assets/screenshots/active_call.png" width="250" alt="Active Call"> | <img src="SOS_Application/assets/screenshots/companion.png" width="250" alt="Companion Matching"> |
 
