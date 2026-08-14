@@ -67,3 +67,4 @@ Here is a glimpse of the SOS Mobile App in action:
 | Active Fake Call | Companion Matching |
 | :---: | :---: |
 | <img src="assets/screenshots/active_call.png" width="250" alt="Active Call"> | <img src="assets/screenshots/companion.png" width="250" alt="Companion Matching"> |
+
