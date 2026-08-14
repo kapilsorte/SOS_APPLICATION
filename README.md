@@ -1,4 +1,4 @@
-# SOS Mobile App (sos_ff) 🚨
+# SOS Mobile App 🚨
 
 A comprehensive personal safety and emergency SOS mobile application built with web technologies and packaged natively using Flutter. The app is designed to provide quick access to emergency features, simulated calls, and real-time location tracking to ensure personal safety.
 
