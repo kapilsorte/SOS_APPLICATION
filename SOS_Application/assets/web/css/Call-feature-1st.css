@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    /* Subtle radial gradient mimicking a dark phone screen background */
+    background: radial-gradient(circle at center, #2a1b1b 0%, #0a0a0a 70%, #000000 100%);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    height: 100dvh; /* Better handling for mobile browser chrome */
+    overflow: hidden;
+}
+
+.call-screen {
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 20px 60px 20px;
+}
+
+/* --- Caller Info --- */
+.caller-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.avatar-wrapper {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 24px;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+#callerImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.initial-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4b5563, #1f2937); /* Dark gray gradient */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+    font-weight: 500;
+}
+
+#callerNameDisplay {
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.call-status {
+    font-size: 18px;
+    color: #d1d5db;
+    font-weight: 400;
+}
+
+/* --- Call Actions --- */
+.call-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 20px;
+}
+
+.secondary-actions, .primary-actions {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+/* Secondary Buttons (Remind, Message) */
+.small-action i {
+    font-size: 26px;
+    margin-bottom: 4px;
+}
+
+.small-action span {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* Primary Buttons (Decline, Accept) */
+.btn-circle {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.btn-circle:active {
+    transform: scale(0.9);
+    filter: brightness(0.8);
+}
+
+.red-btn {
+    background-color: #ff3b30;
+}
+
+.green-btn {
+    background-color: #34c759;
+}
+
+/* Flip the accept phone icon horizontally */
+.green-btn i {
+    transform: scaleX(-1);
+}
+
+.primary-actions span {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Responsive adjustments for small height screens */
+@media screen and (max-height: 700px) {
+    .call-screen {
+        padding: 50px 20px 40px 20px;
+    }
+    .avatar-wrapper {
+        width: 130px;
+        height: 130px;
+        margin-bottom: 16px;
+    }
+    .initial-avatar {
+        font-size: 52px;
+    }
+    #callerNameDisplay {
+        font-size: 30px;
+    }
+    .btn-circle {
+        width: 68px;
+        height: 68px;
+        font-size: 28px;
+    }
+    .call-actions {
+        gap: 30px;
+    }
+}

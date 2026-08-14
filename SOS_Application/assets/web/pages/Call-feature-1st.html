@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Incoming Call</title>
+    <link rel="stylesheet" href="../css/Call-feature-1st.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="call-screen">
+        <!-- Caller Info Section -->
+        <div class="caller-info">
+            <div class="avatar-wrapper">
+                <!-- Image Avatar (Hidden if no photo exists) -->
+                <img id="callerImage" src="" alt="Caller" style="display: none;">
+                
+                <!-- Initial Avatar (Shown if no photo exists) -->
+                <div id="callerInitial" class="initial-avatar" style="display: none;">
+                    <!-- Initial injected via JS -->
+                </div>
+            </div>
+            
+            <h1 id="callerNameDisplay">Unknown</h1>
+            <p class="call-status">Incoming Call</p>
+        </div>
+
+        <!-- Call Actions Section -->
+        <div class="call-actions">
+            
+            <!-- Top Row: Secondary Actions -->
+            <div class="secondary-actions">
+                <button class="action-btn small-action">
+                    <i class="fas fa-stopwatch"></i>
+                    <span>Remind Me</span>
+                </button>
+                <button class="action-btn small-action">
+                    <i class="fas fa-comment"></i>
+                    <span>Message</span>
+                </button>
+            </div>
+
+            <!-- Bottom Row: Primary Actions -->
+            <div class="primary-actions">
+                <button class="action-btn decline-btn" onclick="endCall()">
+                    <div class="btn-circle red-btn">
+                        <!-- Changed from fa-phone-slash to fa-phone -->
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <span>Decline</span>
+                </button>
+             <button class="action-btn accept-btn" onclick="window.location.href='./Call-feature-2nd.html'" style="text-decoration: none;">
+    <div class="btn-circle green-btn">
+        <i class="fas fa-phone"></i>
+    </div>
+    <span>Accept</span>
+</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="../js/Call-feature-1st.js"></script>
+</body>
+</html>

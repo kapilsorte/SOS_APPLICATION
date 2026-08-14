@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Profile Settings</title>
+    <link rel="stylesheet" href="../css/Dashboard.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="mobile-container">
+        <!-- Top Status Bar - Left empty to keep the space vacant -->
+        <div class="status-bar"></div>
+
+        <!-- Home Button (Static, outside the scroll area) -->
+        <a href="../index.html" class="home-nav-icon" aria-label="Go to Home">
+            <i class="fa-solid fa-house"></i>
+        </a>
+
+        <!-- Scrollable Content starts here -->
+        <div class="content-scroll">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="avatar-wrapper">
+                    <!-- Profile Image (Click to enlarge) -->
+                    <img src="../Image.png" alt="Aahana Singh" id="profileImage" class="profile-img">
+                    
+                    <!-- Edit Pencil Icon (Click to edit) -->
+                    <button class="edit-avatar-btn" id="editAvatarBtn" aria-label="Edit profile picture">
+                        <i class="fa-solid fa-pencil"></i>
+                    </button>
+                    
+                    <!-- Hidden File Input -->
+                    <input type="file" id="imageUpload" accept="image/*" hidden>
+                </div>
+                <h1 class="user-name">Aahana Singh</h1>
+            </div>
+
+           <!-- Menu Sections -->
+            <div class="menu-list">
+                <!-- Personal Info Card -->
+                <button class="menu-card" onclick="window.location.href='../pages/Personal-info.html'">
+                    <div class="card-icon"><i class="fa-regular fa-user"></i></div>
+                    <div class="card-text">
+                        <h3>Personal Info</h3>
+                        <p>View and manage your personal details</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right chevron"></i>
+                </button>
+
+                <!-- Emergency Info Card -->
+                <button class="menu-card" onclick="window.location.href='../pages/Emergency-info.html'">
+                    <div class="card-icon red-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <div class="card-text">
+                        <h3>Emergency Info</h3>
+                        <p>Manage your emergency contacts and medical details</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right chevron"></i>
+                </button>
+
+                <!-- Safety Preferences Card -->
+                <button class="menu-card" onclick="window.location.href='SafetyPreferences.html'">
+                    <div class="card-icon red-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                    <div class="card-text">
+                        <h3>Safety Preferences</h3>
+                        <p>Customize your safety settings and alerts</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right chevron"></i>
+                </button>
+
+                <!-- Safety Demo Card -->
+                <button class="menu-card" onclick="window.location.href='SafetyDemo.html'">
+                    <div class="card-icon red-icon"><i class="fa-solid fa-play"></i></div>
+                    <div class="card-text">
+                        <h3>Safety Demo</h3>
+                        <p>Learn how SOS features work with a quick demo</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right chevron"></i>
+                </button>
+
+                <!-- Log Out Card -->
+                <button class="menu-card logout-card" onclick="window.location.href='Login.html'">
+                    <div class="card-icon logout-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
+                    <div class="card-text">
+                        <h3>Log Out</h3>
+                        <p>Sign out from your account</p>
+                    </div>
+                </button>
+            </div>
+
+        <!-- Image Enlargement Modal -->
+        <div class="image-modal" id="imageModal">
+            <button class="close-modal" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            <img src="../Image.png" alt="Enlarged Profile" id="enlargedImage">
+        </div>
+    </div>
+
+    <script src="../js/Dashboard.js"></script>
+</body>
+</html>

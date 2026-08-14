@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fake / Scheduled Call</title>
+    <link rel="stylesheet" href="../css/Emergency-call(Dahboard).css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="top-nav">
+            <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
+            <div class="header-title-container">
+                <div class="header-icon-box">
+                    <!-- Changed to a normal call icon -->
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="nav-title">
+                    <h1>Fake / Scheduled Call</h1>
+                    <p>Set caller details for your fake call</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-scroll">
+            
+            <!-- Caller Name Section -->
+            <section class="form-section">
+                <div class="section-label">
+                    <i class="far fa-user"></i>
+                    <label>Caller Name <span class="req">*</span></label>
+                </div>
+                <div class="input-wrapper">
+                    <textarea id="callerName" class="form-input" maxlength="150" rows="2" placeholder="Enter caller name"></textarea>
+                    <div class="char-counter"><span id="nameCounter">0</span>/150</div>
+                </div>
+                <p class="helper-text">This name will appear on your fake or scheduled incoming call.</p>
+            </section>
+
+            <!-- Caller Number Section -->
+            <section class="form-section">
+                <div class="section-label">
+                    <i class="fas fa-phone-alt"></i>
+                    <label>Caller Number <span class="req">*</span></label>
+                </div>
+                <div class="input-wrapper">
+                    <input type="tel" id="callerNumber" class="form-input" placeholder="e.g. +91 98765 43210">
+                </div>
+                <p class="helper-text">This number will be displayed on the incoming call screen.</p>
+            </section>
+
+            <!-- Caller Photo Section -->
+            <section class="form-section photo-section">
+                <label class="photo-label">Caller Photo <span class="optional">(Optional)</span></label>
+                <div class="photo-card">
+                    <!-- Image is clickable to enlarge -->
+                    <img src="https://via.placeholder.com/150" alt="Caller Photo" id="callerPhotoPreview" class="photo-preview">
+                    
+                    <div class="photo-actions">
+                        <p>Upload a photo to display with the caller name.</p>
+                        <button class="btn-outline-red" onclick="document.getElementById('photoUpload').click()">
+                            <i class="fas fa-upload"></i> Change Photo
+                        </button>
+                        <p class="file-info">JPG, PNG up to 5MB</p>
+                        <input type="file" id="photoUpload" accept="image/png, image/jpeg" hidden>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gender Section -->
+            <section class="form-section">
+                <div class="section-label">
+                    <i class="fas fa-venus-mars"></i>
+                    <label>Gender <span class="req">*</span></label>
+                </div>
+                <div class="gender-toggle-group">
+                    <button class="gender-btn" data-gender="Male" onclick="selectGender('Male')">
+                        <i class="fas fa-mars"></i> Male
+                    </button>
+                    <button class="gender-btn active" data-gender="Female" onclick="selectGender('Female')">
+                        <i class="fas fa-venus"></i> Female
+                    </button>
+                    <button class="gender-btn" data-gender="Other" onclick="selectGender('Other')">
+                        <i class="fas fa-genderless"></i> Other
+                    </button>
+                </div>
+            </section>
+
+            <!-- Privacy Notice Banner -->
+            <div class="privacy-banner">
+                <i class="fas fa-info-circle banner-icon"></i>
+                <p>This information is only used for fake or scheduled calls and will not be shared with anyone.</p>
+            </div>
+
+        </main>
+
+        <!-- Save Button -->
+        <div class="bottom-action">
+            <button class="btn-save-primary" onclick="saveSettings()">
+                <i class="far fa-check-circle"></i> Save Changes
+            </button>
+        </div>
+    </div>
+
+    <!-- Image Enlargement Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="enlargedImg">
+    </div>
+
+    <script src="../js/Emergency-call(Dahboard).js"></script>
+</body>
+</html>

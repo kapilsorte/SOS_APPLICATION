@@ -1,0 +1,317 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Mobile Container */
+.mobile-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px; 
+    height: 100vh;
+    max-height: 850px;
+    background-color: #09090b; 
+    overflow: hidden; /* Crucial: Hides outer scroll, forces inner scrolling */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Status Bar Spacer */
+.status-bar {
+    width: 100%;
+    height: 48px; 
+    flex-shrink: 0;
+}
+
+/* --- Static Home Icon Styles --- */
+.home-nav-icon {
+    position: absolute; /* Locks it relative to the mobile container */
+    top: 55px; 
+    left: 20px;
+    color: #fff;
+    font-size: 22px;
+    text-decoration: none;
+    z-index: 500; /* High z-index ensures it stays on top of scrolling content */
+    padding: 5px; 
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+.home-nav-icon:active {
+    transform: scale(0.85);
+    opacity: 0.7;
+}
+
+/* Scrollable Content Area */
+.content-scroll {
+    flex-grow: 1;
+    overflow-y: auto; /* This allows ONLY this section to scroll */
+    padding: 20px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.avatar-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(255, 75, 75, 0.4);
+    border: 2px solid rgba(255, 75, 75, 0.6);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.profile-img:active {
+    opacity: 0.8;
+}
+
+.edit-avatar-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #222;
+    border: 2px solid #09090b;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.user-name {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Menu List */
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu-card {
+    background-color: #131316;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.2s;
+    outline: none;
+}
+
+.menu-card:active {
+    transform: scale(0.98);
+    background-color: #1a1a1f;
+}
+
+.card-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #1a1a1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #ff6b6b;
+    flex-shrink: 0;
+}
+
+.card-text {
+    flex-grow: 1;
+}
+
+.card-text h3 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.card-text p {
+    color: #888;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.chevron {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Specific styling for Logout Card */
+.logout-card {
+    background-color: transparent;
+    border: 1px solid rgba(255, 59, 48, 0.4);
+    margin-top: 10px;
+}
+
+.logout-card:active {
+    background-color: rgba(255, 59, 48, 0.1);
+}
+
+.logout-card .logout-icon {
+    background-color: transparent;
+    color: #ff3b30;
+    font-size: 22px;
+}
+
+.logout-card .card-text h3 {
+    color: #ff3b30;
+}
+
+/* Image Modal */
+.image-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.image-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.image-modal img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.image-modal.active img {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    background: #222;
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* ========================================= */
+/* MEDIA QUERIES FOR SMALL DISPLAYS          */
+/* ========================================= */
+
+@media screen and (max-height: 700px) {
+    .content-scroll {
+        padding: 15px 15px 30px;
+        gap: 20px;
+    }
+    
+    .avatar-wrapper {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+    
+    .menu-card {
+        padding: 15px; 
+        gap: 12px;
+    }
+    
+    .card-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .content-scroll {
+        padding: 15px 15px 25px;
+    }
+    
+    .user-name {
+        font-size: 20px;
+    }
+    
+    .card-text h3 {
+        font-size: 15px;
+    }
+    
+    .card-text p {
+        font-size: 12px;
+    }
+    
+    .menu-card {
+        padding: 15px;
+    }
+    
+    .card-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .home-nav-icon {
+        font-size: 20px;
+        top: 50px;
+    }
+}

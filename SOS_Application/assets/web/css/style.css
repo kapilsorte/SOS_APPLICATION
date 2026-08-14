@@ -1,0 +1,363 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Hard lock the viewport to perfectly fit mobile screens */
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+    overscroll-behavior: none; 
+    touch-action: none; 
+    position: fixed; 
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Mobile Container */
+.mobile-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 400px; 
+    background-color: #000;
+    overflow: hidden;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Status Bar - Acts purely as an empty spacer block for mobile icons */
+.status-bar {
+    width: 100%;
+    height: 48px; /* Fixed height to keep the vacant space */
+    z-index: 100;
+    background-color: #000;
+    flex-shrink: 0;
+}
+
+/* Map Area with Satellite Image */
+.map-area {
+    flex-grow: 1;
+    position: relative;
+    background-color: #11141a; 
+    overflow: hidden;
+}
+
+.satellite-map-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 115%; 
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Overlays Layering */
+.top-overlays, .marker, .user-location, .swipe-bar {
+    z-index: 10;
+}
+
+/* Top Overlays */
+.top-overlays {
+    position: absolute;
+    top: 20px; 
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.live-status {
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 10px 15px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.status-title {
+    color: #24d15e;
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #24d15e;
+    border-radius: 50%;
+}
+
+.status-subtitle {
+    color: #999;
+    font-size: 12px;
+}
+
+.locate-btn {
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.05);
+    color: #fff;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centered icon */
+    cursor: pointer;
+}
+
+/* Central User Location */
+.user-location {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pulse-ring {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 122, 255, 0.15);
+}
+
+.pulse-ring.outer {
+    width: 140px;
+    height: 140px;
+    border: 1px solid rgba(0, 122, 255, 0.3);
+}
+
+.pulse-ring.inner {
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 122, 255, 0.25);
+}
+
+.location-dot {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background-color: #007aff;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.view-cone {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 60px solid rgba(0, 122, 255, 0.4);
+    transform: translate(-50%, -100%);
+    z-index: 1;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+/* Swipe Bar */
+.swipe-bar {
+    position: absolute;
+    bottom: 15px; 
+    left: 5%;
+    width: 90%;
+    background: #1c1c1e;
+    padding: 18px 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.shield-icon {
+    color: #ff3b30;
+    font-size: 18px;
+}
+
+.swipe-text {
+    font-size: 15px;
+    font-weight: 500;
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+/* Bottom Action Sheet */
+.bottom-sheet {
+    background: #111111;
+    /* Extra bottom padding removed since home indicator is gone */
+    padding: 15px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 200;
+}
+
+/* Reset button styles for navigation items */
+.nav-item {
+    background: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px; 
+    width: 60px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav-item:active .nav-icon {
+    transform: scale(0.9);
+    background: #333;
+}
+
+.nav-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #fff;
+    transition: transform 0.1s, background 0.1s;
+}
+
+.nav-icon.profile-pic {
+    background: transparent;
+    overflow: hidden;
+}
+
+.nav-icon.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav-item span {
+    font-size: 12px;
+    color: #bbb;
+    white-space: nowrap; 
+}
+
+/* SOS Button */
+.sos-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 59, 48, 0.3);
+    margin: 0 10px;
+    flex-shrink: 0; 
+}
+
+.sos-btn {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ff4c4c, #e60000);
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 0 20px rgba(255, 59, 48, 0.4);
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.sos-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(255, 59, 48, 0.6);
+}
+
+
+/* ========================================= */
+/* MEDIA QUERIES FOR SMALL DISPLAYS          */
+/* ========================================= */
+
+@media screen and (max-height: 700px) {
+    .bottom-sheet {
+        padding: 12px 15px;
+    }
+    
+    .swipe-bar {
+        padding: 12px 15px;
+        bottom: 10px;
+    }
+    
+    .top-overlays {
+        top: 10px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .bottom-sheet {
+        padding: 12px 5px; 
+    }
+
+    .nav-item {
+        width: auto;
+        flex: 1; 
+        gap: 4px;
+    }
+
+    .nav-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .nav-item span {
+        font-size: 10px;
+    }
+
+    .sos-wrapper {
+        width: 75px;
+        height: 75px;
+        margin: 0 5px;
+    }
+
+    .sos-btn {
+        width: 62px;
+        height: 62px;
+        font-size: 18px;
+    }
+
+    .swipe-text {
+        font-size: 13px;
+        margin-left: 10px;
+    }
+}

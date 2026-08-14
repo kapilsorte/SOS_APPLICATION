@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    /* Radial gradient mimicking the warm, dark iOS call screen background */
+    background: radial-gradient(circle at center 35%, #382424 0%, #161212 50%, #000000 100%);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    height: 100dvh; 
+    overflow: hidden;
+}
+
+.call-screen {
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 20px 40px 20px;
+}
+
+/* --- Header / Timer --- */
+.call-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 30px; 
+}
+
+#callTimer {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+/* --- Caller Info --- */
+.caller-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: auto; /* Pushes the grid down */
+}
+
+.avatar-wrapper {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+#callerImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.initial-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4b5563, #1f2937);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 56px;
+    font-weight: 500;
+}
+
+#callerNameDisplay {
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.call-subtitle {
+    font-size: 16px;
+    color: #a1a1aa;
+    font-weight: 400;
+}
+
+/* --- Controls Grid --- */
+.controls-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 24px;
+    width: 100%;
+    max-width: 320px;
+}
+
+.control-btn {
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.btn-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15); /* Translucent dark gray */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.control-btn:active .btn-circle {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(0.95);
+}
+
+/* Active State (e.g. Muted, Speaker On) */
+.control-btn.active .btn-circle {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.control-btn span {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+/* --- End Call --- */
+.end-call-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.end-call-btn {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background-color: #ff3b30;
+    border: none;
+    color: #ffffff;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.end-call-btn i {
+    transform: rotate(135deg); /* Points phone icon down */
+}
+
+.end-call-btn:active {
+    transform: scale(0.9);
+    filter: brightness(0.8);
+}
+
+/* Responsive adjustments */
+@media screen and (max-height: 700px) {
+    .call-screen {
+        padding: 40px 20px 30px 20px;
+    }
+    .avatar-wrapper {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 12px;
+    }
+    #callerNameDisplay {
+        font-size: 28px;
+    }
+    .btn-circle {
+        width: 64px;
+        height: 64px;
+        font-size: 24px;
+    }
+    .controls-grid {
+        gap: 16px 20px;
+    }
+    .controls-container {
+        margin-bottom: 30px;
+    }
+}

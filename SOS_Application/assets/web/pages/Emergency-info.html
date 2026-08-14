@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Emergency Info</title>
+    <link rel="stylesheet" href="../css/Emergency-info.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top space is reserved via CSS padding for mobile status bar -->
+
+        <!-- Header -->
+        <header class="top-nav">
+           <button class="back-btn" onclick="window.location.href='Dashboard.html'"><i class="fas fa-arrow-left"></i></button>
+            <div class="header-title-container">
+                <!-- Replaced invisible Pro FA icon with a guaranteed SVG Medical Shield -->
+                <div class="header-icon-box">
+                    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <line x1="12" y1="9" x2="12" y2="15"></line>
+                        <line x1="9" y1="12" x2="15" y2="12"></line>
+                    </svg>
+                </div>
+                <div class="nav-title">
+                    <h1>Emergency Info</h1>
+                    <p>Information used during an emergency</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-scroll">
+            
+            <!-- ENTIRE MEDICAL SECTION IS CLICKABLE -->
+            <section class="info-card clickable-card" onclick="window.location.href='Medical-info.html'">
+                <div class="card-header">
+                    <div class="icon-circle"><i class="fas fa-heartbeat"></i></div>
+                    <h2>Medical Details</h2>
+                </div>
+                
+                <!-- Inner items use <div> to prevent invalid nested clicks -->
+                <div class="list-item">
+                    <div class="item-icon"><i class="fas fa-virus"></i></div>
+                    <div class="item-content">
+                        <h3>Allergies</h3>
+                        <p>Peanuts, Penicillin</p>
+                    </div>
+                    <i class="fas fa-chevron-right chevron"></i>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <div class="item-content">
+                        <h3>Medical Conditions</h3>
+                        <p>None</p>
+                    </div>
+                    <i class="fas fa-chevron-right chevron"></i>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-icon"><i class="fas fa-capsules"></i></div>
+                    <div class="item-content">
+                        <h3>Medications</h3>
+                        <p>No regular medication</p>
+                    </div>
+                    <i class="fas fa-chevron-right chevron"></i>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-icon"><i class="fas fa-notes-medical"></i></div>
+                    <div class="item-content">
+                        <h3>Additional Medical Information</h3>
+                        <p>Carries an inhaler for asthma.</p>
+                    </div>
+                    <i class="fas fa-chevron-right chevron"></i>
+                </div>
+            </section>
+
+            <!-- ENTIRE IMPORTANT LOCATIONS SECTION IS NOW CLICKABLE -->
+            <section class="info-card clickable-card" onclick="window.location.href='../pages/Emergency-locations.html'">
+                <div class="card-header">
+                    <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+                    <h2>Important Locations</h2>
+                </div>
+                
+                <!-- Changed from <button> to <div> to prevent invalid nested clicks -->
+                <div class="list-item">
+                    <div class="item-icon"><i class="fas fa-home"></i></div>
+                    <div class="item-content">
+                        <h3>Home Location</h3>
+                        <p>Pune, Maharashtra, India</p>
+                    </div>
+                    <i class="fas fa-chevron-right chevron"></i>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="item-content">
+                        <h3>Work Location</h3>
+                        <p>Hinjewadi, Pune, Maharashtra, India</p>
+                    </div>
+                    <i class="fas fa-chevron-right chevron"></i>
+                </div>
+            </section>
+
+            <!-- ENTIRE EMERGENCY CONTACTS SECTION IS CLICKABLE -->
+            <section class="info-card clickable-card" onclick="window.location.href='Emergency-contacts.html'">
+                <div class="card-header split-header">
+                    <div class="header-left">
+                        <div class="icon-circle"><i class="fas fa-user-friends"></i></div>
+                        <h2>Emergency Contacts</h2>
+                    </div>
+                    <span class="counter">1 of 3</span>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-avatar">1</div>
+                    <div class="contact-details">
+                        <div class="contact-name-row">
+                            <h3>Rahul Keshav</h3>
+                            <span class="tag-required">Required</span>
+                        </div>
+                        <div class="contact-info-row">
+                            <i class="fas fa-phone-alt"></i>
+                            <p>+91 98765 43210</p>
+                        </div>
+                        <div class="contact-info-row">
+                            <i class="far fa-user"></i>
+                            <p>Brother</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-dashed">
+                    <i class="fas fa-plus-circle"></i> Add Emergency Contact
+                </div>
+                
+                <div class="card-footer">
+                    <i class="fas fa-info-circle"></i>
+                    <p>You can add up to 3 emergency contacts.</p>
+                </div>
+            </section>
+
+            <!-- ENTIRE FAKE / SCHEDULED CALL SECTION IS CLICKABLE -->
+            <section class="info-card clickable-card" onclick="window.location.href='../pages/Emergency-call(Dashboard).html'">
+                <div class="card-header">
+                    <div class="icon-circle"><i class="fas fa-phone-volume"></i></div>
+                    <h2>Fake / Scheduled Call</h2>
+                </div>
+                
+                <div class="list-item">
+                    <div class="item-content">
+                        <span class="sub-label">Custom Caller Name</span>
+                        <h3>Mom</h3>
+                        <p>This name will appear on your fake or scheduled incoming call.</p>
+                    </div>
+                    <i class="fas fa-chevron-right chevron"></i>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="../js/Emergency-info.js"></script>
+</body>
+</html>

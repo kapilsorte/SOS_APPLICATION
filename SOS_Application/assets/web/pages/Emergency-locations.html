@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Important Locations</title>
+    <link rel="stylesheet" href="../css/Emergency-locations.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="top-nav">
+            <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
+            <div class="header-title-container">
+                <div class="header-icon-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="nav-title">
+                    <h1>Important Locations</h1>
+                    <p>Add or update your important locations</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-scroll">
+            
+            <!-- Home Location Card -->
+            <section class="info-card">
+                <div class="card-header split-header">
+                    <div class="header-left">
+                        <div class="icon-circle"><i class="fas fa-home"></i></div>
+                        <div class="header-text">
+                            <h2>Home Location <span class="req">*</span></h2>
+                            <p>Add your home address</p>
+                        </div>
+                    </div>
+                    <!-- Top Right Edit Button -->
+                    <button class="edit-btn" id="homeEditBtn" onclick="toggleEdit('homeAddress', 'homeEditBtn')">
+                        <i class="fas fa-pen"></i>
+                    </button>
+                </div>
+                
+                <div class="location-input-box" id="homeInputBox">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="homeAddress" placeholder="Search home address..." readonly>
+                    <!-- Hook this button to your Maps API Modal -->
+                    <button class="map-picker-btn" onclick="openMapPicker('homeAddress')" title="Select on map">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </button>
+                </div>
+                <p class="helper-text">Enter the complete address to help in emergencies.</p>
+            </section>
+
+            <!-- Work Location Card -->
+            <section class="info-card">
+                <div class="card-header split-header">
+                    <div class="header-left">
+                        <div class="icon-circle"><i class="fas fa-briefcase"></i></div>
+                        <div class="header-text">
+                            <h2>Work Location <span class="req">*</span></h2>
+                            <p>Add your work address</p>
+                        </div>
+                    </div>
+                    <!-- Top Right Edit Button -->
+                    <button class="edit-btn" id="workEditBtn" onclick="toggleEdit('workAddress', 'workEditBtn')">
+                        <i class="fas fa-pen"></i>
+                    </button>
+                </div>
+                
+                <div class="location-input-box" id="workInputBox">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="workAddress" placeholder="Search work address..." readonly>
+                    <!-- Hook this button to your Maps API Modal -->
+                    <button class="map-picker-btn" onclick="openMapPicker('workAddress')" title="Select on map">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </button>
+                </div>
+                <p class="helper-text">Enter the complete address to help in emergencies.</p>
+            </section>
+
+            <!-- Privacy Notice Banner -->
+            <div class="info-banner">
+                <i class="far fa-info-circle banner-icon"></i>
+                <p>These locations will help us provide faster assistance during emergencies.</p>
+            </div>
+
+        </main>
+
+        <!-- Save Button -->
+        <div class="bottom-action">
+            <button class="btn-save-primary" onclick="saveLocations()">
+                <i class="far fa-save"></i> Save Locations
+            </button>
+        </div>
+    </div>
+
+    <script src="../js/Emergency-locations.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SOS Mobile App Interface</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="mobile-container">
+        <!-- Top Status Bar - Left empty to keep the space vacant -->
+        <div class="status-bar"></div>
+
+        <!-- Map Area -->
+        <div class="map-area">
+            <!-- Satellite Map Image -->
+            <img src="./Map.jpeg" alt="Satellite View Map" class="satellite-map-img">
+            
+            <!-- Top Overlay Indicators -->
+            <div class="top-overlays">
+                <div class="live-status">
+                    <div class="status-title">
+                        <span class="dot"></span> Live
+                    </div>
+                    <div class="status-subtitle">Accurate &middot; 10m</div>
+                </div>
+                
+                <button class="locate-btn">
+                    <i class="fa-solid fa-crosshairs"></i>
+                </button>
+            </div>
+
+            <!-- User Central Location -->
+            <div class="user-location">
+                <div class="pulse-ring outer"></div>
+                <div class="pulse-ring inner"></div>
+                <div class="location-dot"></div>
+                <div class="view-cone"></div>
+            </div>
+
+            <!-- Emergency Swipe Bar -->
+            <div class="swipe-bar" id="swipeBar">
+                <div class="shield-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <span class="swipe-text">Swipe up for emergency options</span>
+                <i class="fa-solid fa-chevron-up"></i>
+            </div>
+        </div>
+
+        <!-- Bottom Action Sheet -->
+        <div class="bottom-sheet">
+            <!-- Navbar items changed to interactive buttons -->
+           <button class="nav-item action-btn" onclick="window.location.href='./pages/Call-feature-1st.html'" style="text-decoration: none;">
+    <div class="nav-icon"><i class="fa-solid fa-phone"></i></div>
+    <span>Call</span>
+</button>
+            <button class="nav-item action-btn" onclick="window.location.href='./pages/Timer-1.html'" style="text-decoration: none;">
+                <div class="nav-icon"><i class="fa-regular fa-clock"></i></div>
+                <span>Timer</span>
+            </button>
+            
+            <div class="sos-wrapper">
+                <button class="sos-btn" id="sosBtn">SOS</button>
+            </div>
+            
+            <button class="nav-item action-btn" onclick="window.location.href='./pages/Companion-matching.html'" style="text-decoration: none;">
+                <div class="nav-icon"><i class="fa-solid fa-user-plus"></i></div>
+                <span>Companion</span>
+            </button>
+            <a href="./pages/Dashboard.html" class="nav-item action-btn" style="text-decoration: none;">
+                <div class="nav-icon profile-pic">
+                    <img src="./Image.png" alt="You">
+                </div>
+                <span>You</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

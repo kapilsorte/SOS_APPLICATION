@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Companion</title>
+    <link rel="stylesheet" href="../css/Companion-matching.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Full-Screen Map Background -->
+        <div class="map-view">
+            <!-- Central User Blip -->
+            <div class="user-blip">
+                <div class="pulse-ring"></div>
+                <div class="blip-core"></div>
+                <i class="fas fa-location-arrow dir-arrow"></i>
+            </div>
+
+            <!-- Map Markers -->
+            <div class="map-marker" style="top: 40%; left: 20%;">
+                <div class="marker-icon"><i class="fas fa-user"></i></div>
+                <div class="marker-label">
+                    <span>Anonymos 1</span>
+                    <small>approx 180 m</small>
+                </div>
+            </div>
+
+            <div class="map-marker" style="top: 25%; left: 35%;">
+                <div class="marker-icon"><i class="fas fa-user"></i></div>
+                <div class="marker-label">
+                    <span>Anonymos 2</span>
+                    <small>approx 420 m</small>
+                </div>
+            </div>
+
+            <div class="map-marker" style="top: 22%; left: 75%;">
+                <div class="marker-icon"><i class="fas fa-user"></i></div>
+                <div class="marker-label">
+                    <span>Anonymos 3</span>
+                    <small>approx 1.2 km</small>
+                </div>
+            </div>
+            
+            <div class="map-marker" style="top: 45%; left: 80%;">
+                <div class="marker-icon"><i class="fas fa-user"></i></div>
+                <div class="marker-label">
+                    <span>Anonymos 4</span>
+                    <small>approx 750 m</small>
+                </div>
+            </div>
+            
+            <div class="map-marker" style="top: 70%; left: 60%;">
+                <div class="marker-icon"><i class="fas fa-user"></i></div>
+                <div class="marker-label">
+                    <span>Anonymos 5</span>
+                    <small>approx 2.1 km</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating UI Overlays -->
+        <header class="top-nav glass-header">
+            <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
+            <div class="header-title-container">
+                <div class="header-icon-box">
+                    <i class="fas fa-user-friends"></i>
+                </div>
+                <div class="nav-title">
+                    <h1>Companion</h1>
+                    <p>Find someone nearby to accompany you</p>
+                </div>
+            </div>
+            <!-- Settings icon removed -->
+            <div style="width: 30px;"></div> <!-- Empty spacer to balance the flex layout -->
+        </header>
+
+        <!-- Live Status Badge -->
+        <div class="live-badge">
+            <div class="live-title"><span class="dot"></span> Live</div>
+            <div class="live-sub">Accurate • 10m</div>
+        </div>
+
+        <!-- Map Controls (Right side) -->
+        <div class="map-controls">
+            <button class="map-btn"><i class="fas fa-crosshairs"></i></button>
+            <button class="map-btn active-layer"><i class="fas fa-layer-group"></i></button>
+            <button class="map-btn compass"><i class="fas fa-location-arrow"></i></button>
+        </div>
+
+        <!-- Interactive Bottom Sheet -->
+        <div class="bottom-sheet" id="bottomSheet">
+            
+            <!-- Drag Area (Only this top part triggers the swipe to keep the list scrollable) -->
+            <div class="drag-area" id="dragArea">
+                <div class="drag-handle"></div>
+                <div class="sheet-header">
+                    <h2>Nearby Companions</h2>
+                    <p>Sorted by nearest</p>
+                </div>
+            </div>
+
+            <!-- Scrollable Companion List -->
+            <div class="companion-list">
+                <!-- Companion Item 1 -->
+                <div class="companion-card">
+                    <div class="comp-avatar"><i class="fas fa-user"></i></div>
+                    <div class="comp-info">
+                        <h3>Anonymos 1</h3>
+                        <p>approx 180 m</p>
+                    </div>
+                    <button class="btn-request" onclick="toggleRequest(this)">Send Request</button>
+                </div>
+
+                <!-- Companion Item 2 -->
+                <div class="companion-card">
+                    <div class="comp-avatar"><i class="fas fa-user"></i></div>
+                    <div class="comp-info">
+                        <h3>Anonymos 2</h3>
+                        <p>approx 420 m</p>
+                    </div>
+                    <button class="btn-request" onclick="toggleRequest(this)">Send Request</button>
+                </div>
+
+                <!-- Companion Item 3 -->
+                <div class="companion-card">
+                    <div class="comp-avatar"><i class="fas fa-user"></i></div>
+                    <div class="comp-info">
+                        <h3>Anonymos 4</h3>
+                        <p>approx 750 m</p>
+                    </div>
+                    <button class="btn-request" onclick="toggleRequest(this)">Send Request</button>
+                </div>
+
+                <!-- Companion Item 4 -->
+                <div class="companion-card">
+                    <div class="comp-avatar"><i class="fas fa-user"></i></div>
+                    <div class="comp-info">
+                        <h3>Anonymos 3</h3>
+                        <p>approx 1.2 km</p>
+                    </div>
+                    <button class="btn-request" onclick="toggleRequest(this)">Send Request</button>
+                </div>
+                
+                <!-- Companion Item 5 -->
+                <div class="companion-card">
+                    <div class="comp-avatar"><i class="fas fa-user"></i></div>
+                    <div class="comp-info">
+                        <h3>Anonymos 5</h3>
+                        <p>approx 2.1 km</p>
+                    </div>
+                    <button class="btn-request" onclick="toggleRequest(this)">Send Request</button>
+                </div>
+            </div>
+            <!-- Privacy banner section removed -->
+        </div>
+    </div>
+
+    <script src="../js/Companion-matching.js"></script>
+</body>
+</html>

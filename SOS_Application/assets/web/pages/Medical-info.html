@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Medical Info</title>
+    <link rel="stylesheet" href="../css/Medical-info.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="top-nav">
+            <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
+            <div class="nav-title">
+                <h1>Medical Info</h1>
+                <p>Manage your medical details</p>
+            </div>
+            <div class="placeholder-spacer"></div>
+        </header>
+
+        <div class="content-scroll">
+            <!-- Section Title -->
+            <div class="section-header">
+                <i class="fas fa-heartbeat heart-icon"></i>
+                <h2>Medical Details</h2>
+            </div>
+
+            <!-- Medical Cards List -->
+            <div class="medical-list">
+                
+                <!-- Allergies Card -->
+                <div class="medical-card glass-panel">
+                    <div class="card-icon-box">
+                        <i class="fas fa-virus"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Allergies</h3>
+                        <span class="value" id="val-allergies">Peanuts, Penicillin</span>
+                    </div>
+                    <button class="edit-icon-btn" onclick="toggleEdit(this, 'val-allergies')">
+                        <i class="far fa-edit"></i>
+                    </button>
+                </div>
+
+                <!-- Medical Conditions Card -->
+                <div class="medical-card glass-panel">
+                    <div class="card-icon-box">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Medical Conditions</h3>
+                        <span class="value" id="val-conditions">None</span>
+                    </div>
+                    <button class="edit-icon-btn" onclick="toggleEdit(this, 'val-conditions')">
+                        <i class="far fa-edit"></i>
+                    </button>
+                </div>
+
+                <!-- Medications Card -->
+                <div class="medical-card glass-panel">
+                    <div class="card-icon-box">
+                        <i class="fas fa-capsules"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Medications</h3>
+                        <span class="value" id="val-medications">No regular medication</span>
+                    </div>
+                    <button class="edit-icon-btn" onclick="toggleEdit(this, 'val-medications')">
+                        <i class="far fa-edit"></i>
+                    </button>
+                </div>
+
+                <!-- Additional Medical Information Card -->
+                <div class="medical-card glass-panel">
+                    <div class="card-icon-box">
+                        <i class="fas fa-notes-medical"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Additional Medical Information</h3>
+                        <span class="value" id="val-additional">Carries an inhaler for asthma.</span>
+                    </div>
+                    <button class="edit-icon-btn" onclick="toggleEdit(this, 'val-additional')">
+                        <i class="far fa-edit"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/Medical-info.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Set Timer</title>
+    <link rel="stylesheet" href="../css/Timer-1.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="top-nav">
+            <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
+            <div class="header-title-container">
+                <div class="header-icon-box">
+                    <i class="fas fa-hourglass-half"></i>
+                </div>
+                <div class="nav-title">
+                    <h1>Timer</h1>
+                    <p>Set a timer for your journey</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-scroll">
+            
+            <!-- Route Section -->
+            <div class="route-section">
+                <!-- Decorative Dotted Line -->
+                <div class="route-line"></div>
+
+                <!-- Source Location Card -->
+                <section class="info-card">
+                    <div class="card-header split-header">
+                        <div class="header-left">
+                            <div class="icon-circle icon-source"><i class="fas fa-dot-circle"></i></div>
+                            <div class="header-text">
+                                <h2>Starting Location (Source) <span class="req">*</span></h2>
+                                <p>Select your starting location on the map</p>
+                            </div>
+                        </div>
+                        <button class="edit-btn" id="sourceEditBtn" onclick="toggleEdit('sourceInput', 'sourceEditBtn')">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                    <div class="location-input-box" id="sourceInputBox">
+                        <i class="fas fa-map-marker-alt location-icon"></i>
+                        <input type="text" id="sourceInput" value="JM Road, Pune, Maharashtra, India" readonly>
+                        <button class="clear-btn" id="sourceClearBtn" onclick="clearInput('sourceInput', 'sourceEditBtn')"><i class="fas fa-times"></i></button>
+                    </div>
+                </section>
+
+                <!-- Destination Location Card -->
+                <section class="info-card">
+                    <div class="card-header split-header">
+                        <div class="header-left">
+                            <div class="icon-circle icon-dest"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="header-text">
+                                <h2>Destination Location <span class="req">*</span></h2>
+                                <p>Select your destination on the map</p>
+                            </div>
+                        </div>
+                        <button class="edit-btn" id="destEditBtn" onclick="toggleEdit('destInput', 'destEditBtn')">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                    <div class="location-input-box" id="destInputBox">
+                        <i class="fas fa-map-marker-alt location-icon"></i>
+                        <input type="text" id="destInput" value="Hinjewadi IT Park, Pune, Maharashtra, India" readonly>
+                        <button class="clear-btn" id="destClearBtn" onclick="clearInput('destInput', 'destEditBtn')"><i class="fas fa-times"></i></button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Estimated Time Card -->
+            <section class="info-card">
+                <div class="card-header">
+                    <div class="header-left">
+                        <div class="icon-circle"><i class="far fa-clock"></i></div>
+                        <div class="header-text">
+                            <h2>Estimated Time</h2>
+                            <p>Calculated time between source and destination</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="eta-display">
+                    <div class="eta-time">00 hr 42 min</div>
+                    <div class="eta-distance">(Distance: 19.6 km)</div>
+                </div>
+            </section>
+
+            <!-- Set Timer Duration Card -->
+            <section class="info-card">
+                <div class="card-header">
+                    <div class="header-left">
+                        <div class="icon-circle"><i class="fas fa-hourglass-start"></i></div>
+                        <div class="header-text">
+                            <h2 id="timerCardTitle">Set Timer Duration <span class="req">*</span></h2>
+                            <p id="timerCardSub">Set how much time you expect for this journey</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Time Pickers (Hidden when active) -->
+                <div class="time-pickers-container" id="timeSetup">
+                    <div class="time-box">
+                        <div class="select-wrapper">
+                            <select id="hoursSelect"></select>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </div>
+                        <label>Hours</label>
+                    </div>
+                    
+                    <div class="time-colon">:</div>
+                    
+                    <div class="time-box">
+                        <div class="select-wrapper">
+                            <select id="minutesSelect"></select>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </div>
+                        <label>Minutes</label>
+                    </div>
+                    
+                    <div class="time-colon">:</div>
+                    
+                    <div class="time-box">
+                        <div class="select-wrapper">
+                            <select id="secondsSelect"></select>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </div>
+                        <label>Seconds</label>
+                    </div>
+                </div>
+
+                <!-- Active Timer Display (Hidden initially) -->
+                <div id="activeTimerDisplay" class="active-timer-text" style="display: none;">
+                    00:00:00
+                </div>
+
+                <!-- Helper Info -->
+                <div class="helper-banner" id="timerBanner">
+                    <i class="far fa-info-circle banner-icon"></i>
+                    <p>Set the expected time for your journey. We will alert your emergency contacts if the timer expires.</p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Start/Stop Timer Button -->
+        <div class="bottom-action">
+            <button id="actionBtn" class="btn-start-timer" onclick="startTimer()">
+                <i class="fas fa-play"></i> Start Timer
+            </button>
+        </div>
+    </div>
+
+    <script src="../js/Timer-1.js"></script>
+</body>
+</html>

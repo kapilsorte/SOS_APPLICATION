@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Emergency Contacts</title>
+    <link rel="stylesheet" href="../css/Emergency-contacts.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="top-nav">
+            <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
+            <div class="header-title-container">
+                <div class="header-icon-box">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="nav-title">
+                    <h1>Emergency Contacts</h1>
+                </div>
+            </div>
+            <div class="placeholder-spacer"></div>
+        </header>
+
+        <div class="content-scroll" id="contacts-container">
+            
+            <!-- Contact Card 1 (Required, No Delete Option) -->
+            <div class="contact-card glass-panel" id="card-1">
+                <div class="card-header">
+                    <div class="header-left">
+                        <div class="contact-number">1</div>
+                        <h2>Emergency Contact 1</h2>
+                        <span class="tag-required">Required</span>
+                    </div>
+                    <div class="header-actions">
+                        <button class="edit-btn" onclick="toggleContactEdit(1, this)">
+                            <i class="fas fa-pen"></i> Edit
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <div class="detail-row">
+                        <div class="row-icon"><i class="far fa-user"></i></div>
+                        <div class="row-content">
+                            <label>Name <span class="req">*</span></label>
+                            <span class="value" id="val-name-1">Rahul Keshav</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="row-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="row-content">
+                            <label>Phone Number <span class="req">*</span></label>
+                            <span class="value" id="val-phone-1">+91 98765 43210</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="row-icon"><i class="fas fa-user-friends"></i></div>
+                        <div class="row-content">
+                            <label>Relation <span class="req">*</span></label>
+                            <span class="value" id="val-relation-1">Brother</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Card 2 (With Delete Option) -->
+            <div class="contact-card glass-panel" id="card-2">
+                <div class="card-header">
+                    <div class="header-left">
+                        <div class="contact-number">2</div>
+                        <h2>Emergency Contact 2</h2>
+                    </div>
+                    <div class="header-actions">
+                        <button class="edit-btn" onclick="toggleContactEdit(2, this)">
+                            <i class="fas fa-pen"></i> Edit
+                        </button>
+                        <button class="delete-btn" onclick="deleteContact(2)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <div class="detail-row">
+                        <div class="row-icon"><i class="far fa-user"></i></div>
+                        <div class="row-content">
+                            <label>Name <span class="req">*</span></label>
+                            <span class="value" id="val-name-2">Priya Keshav</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="row-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="row-content">
+                            <label>Phone Number <span class="req">*</span></label>
+                            <span class="value" id="val-phone-2">+91 91234 56789</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="row-icon"><i class="fas fa-user-friends"></i></div>
+                        <div class="row-content">
+                            <label>Relation <span class="req">*</span></label>
+                            <span class="value" id="val-relation-2">Sister</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Card 3 (With Delete Option) -->
+            <div class="contact-card glass-panel" id="card-3">
+                <div class="card-header">
+                    <div class="header-left">
+                        <div class="contact-number">3</div>
+                        <h2>Emergency Contact 3</h2>
+                    </div>
+                    <div class="header-actions">
+                        <button class="edit-btn" onclick="toggleContactEdit(3, this)">
+                            <i class="fas fa-pen"></i> Edit
+                        </button>
+                        <button class="delete-btn" onclick="deleteContact(3)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <div class="detail-row">
+                        <div class="row-icon"><i class="far fa-user"></i></div>
+                        <div class="row-content">
+                            <label>Name <span class="req">*</span></label>
+                            <span class="value" id="val-name-3">Amit Deshmukh</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="row-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="row-content">
+                            <label>Phone Number <span class="req">*</span></label>
+                            <span class="value" id="val-phone-3">+91 99887 76655</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="row-icon"><i class="fas fa-user-friends"></i></div>
+                        <div class="row-content">
+                            <label>Relation <span class="req">*</span></label>
+                            <span class="value" id="val-relation-3">Friend</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Contact Button (Hidden initially since there are 3 contacts) -->
+            <button id="add-contact-btn" class="btn-dashed" onclick="addNewContact()" style="display: none;">
+                <i class="fas fa-plus-circle"></i> Add Emergency Contact
+            </button>
+
+            <!-- Global Save Action -->
+            <div class="bottom-action">
+                <button class="btn-save-global" onclick="saveAllChanges()">Save Changes</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/Emergency-contacts.js"></script>
+</body>
+</html>

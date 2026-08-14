@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Active Call</title>
+    <link rel="stylesheet" href="../css/Call-feature-2nd.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="call-screen">
+        
+        <!-- Timer Top Section (Removed info icon and yellow dot) -->
+        <div class="call-header">
+            <span id="callTimer">00:00</span>
+        </div>
+
+        <!-- Caller Info Section -->
+        <div class="caller-info">
+            <div class="avatar-wrapper">
+                <!-- Image Avatar -->
+                <img id="callerImage" src="" alt="Caller" style="display: none;">
+                
+                <!-- Initial Avatar (Fallback) -->
+                <div id="callerInitial" class="initial-avatar" style="display: none;"></div>
+            </div>
+            
+            <h1 id="callerNameDisplay">Unknown</h1>
+            <p class="call-subtitle">Mobile <span id="callerNumberDisplay">+00 00000 00000</span></p>
+        </div>
+
+        <!-- Call Controls Grid -->
+        <div class="controls-container">
+            <div class="controls-grid">
+                
+                <button class="control-btn" onclick="toggleBtn(this)">
+                    <div class="btn-circle">
+                        <i class="fas fa-microphone-slash"></i>
+                    </div>
+                    <span>Mute</span>
+                </button>
+
+                <button class="control-btn">
+                    <div class="btn-circle">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    <span>Keypad</span>
+                </button>
+
+                <button class="control-btn" onclick="toggleBtn(this)">
+                    <div class="btn-circle">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    <span>Speaker</span>
+                </button>
+
+                <button class="control-btn">
+                    <div class="btn-circle">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <span>Add Call</span>
+                </button>
+
+                <button class="control-btn">
+                    <div class="btn-circle">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <span>Video Call</span>
+                </button>
+
+                <button class="control-btn">
+                    <div class="btn-circle">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span>Contacts</span>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- End Call Section -->
+        <div class="end-call-container">
+            <button class="end-call-btn" onclick="endCall()">
+                <i class="fas fa-phone"></i>
+            </button>
+        </div>
+        
+    </div>
+
+    <script src="../js/Call-feature-2nd.js"></script>
+</body>
+</html>

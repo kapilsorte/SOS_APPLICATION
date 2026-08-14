@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Info</title>
+    <link rel="stylesheet" href="../css/Personal-info.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="top-nav">
+           <a href="../index.html"> <button class="back-btn"><i class="fas fa-arrow-left"></i></button></a>
+            <div class="nav-title">
+                <h1>Personal Info</h1>
+                <p>Manage your personal details</p>
+            </div>
+            <div class="placeholder-spacer"></div>
+        </header>
+
+        <!-- Profile Card -->
+        <section class="profile-card glass-panel">
+            <div class="profile-avatar-container">
+                <!-- Added ID and onclick for enlargement -->
+                <img src="../Image.png" alt="Aahana Singh" class="profile-img" id="profileImage">
+            </div>
+            <div class="profile-info">
+                <h2>Aahana Singh</h2>
+                <span class="status"><i class="fas fa-shield-alt"></i> Profile active</span>
+            </div>
+            
+            <!-- Edit photo trigger -->
+            <button class="btn-outline" onclick="document.getElementById('profile-upload').click()">
+                <i class="fas fa-pen"></i> Edit
+            </button>
+            <!-- Hidden file input for uploading photo -->
+            <input type="file" id="profile-upload" accept="Image.png" style="display: none;" onchange="updateProfilePhoto(event)">
+        </section>
+
+        <!-- Personal Details Section -->
+        <section class="details-section">
+            <h3 class="section-title"><i class="far fa-user"></i> Personal Details</h3>
+            
+            <div class="details-list glass-panel">
+                <!-- Name Field -->
+                <div class="detail-row">
+                    <div class="icon-box"><i class="far fa-user"></i></div>
+                    <div class="detail-content">
+                        <label>Name</label>
+                        <span class="value" id="val-name">Aahana Singh</span>
+                    </div>
+                    <button class="edit-icon-btn" onclick="toggleEdit(this, 'val-name')"><i class="far fa-edit"></i></button>
+                </div>
+
+                <!-- Phone Field -->
+                <div class="detail-row">
+                    <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+                    <div class="detail-content">
+                        <label>Phone Number</label>
+                        <span class="value" id="val-phone">9876543210</span>
+                    </div>
+                    <button class="edit-icon-btn" onclick="toggleEdit(this, 'val-phone')"><i class="far fa-edit"></i></button>
+                </div>
+
+                <!-- Email Field (No Edit) -->
+                <div class="detail-row">
+                    <div class="icon-box"><i class="far fa-envelope"></i></div>
+                    <div class="detail-content">
+                        <label>Email</label>
+                        <span class="value" id="val-email">aahanasingh@gmail.com</span>
+                    </div>
+                    <div class="edit-icon-spacer"></div> 
+                </div>
+
+                <!-- Gender Field -->
+                <div class="detail-row">
+                    <div class="icon-box"><i class="fas fa-venus"></i></div>
+                    <div class="detail-content">
+                        <label>Gender</label>
+                        <span class="value" id="val-gender">Female</span>
+                    </div>
+                    <button class="edit-icon-btn" onclick="toggleEdit(this, 'val-gender')"><i class="far fa-edit"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Banner -->
+        <section class="security-banner glass-panel">
+            <div class="security-content">
+                <h4><i class="fas fa-shield-alt"></i> Your Information is Secure</h4>
+                <p>We prioritize your privacy and keep your information safe with us.</p>
+            </div>
+            <div class="security-graphic">
+                <i class="fas fa-lock lock-icon"></i>
+            </div>
+        </section>
+    </div>
+
+    <!-- Image Modal (Lightbox) for enlarged profile photo -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="enlargedImg">
+    </div>
+
+    <script src="../js/Personal-info.js"></script>
+</body>
+</html>
